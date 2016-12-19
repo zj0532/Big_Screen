@@ -4,5 +4,6 @@
 	{
 		die('连接数据库错误：'.mysql_error());	
 	}
-	mysqli_query($con,"set names 'utf8'");
+	mysqli_select_db($con,"zabbix")
+	
 ?>
