@@ -1,0 +1,9 @@
+<?php
+	ob_start();
+	$id=$_POST['id'];
+	$Arrayx=$_POST['Arrayx'];
+	$Arrayy=$_POST['Arrayy'];
+	print_r($id);
+	print_r($Arrayx);
+	print_r($Arrayy);
+?>

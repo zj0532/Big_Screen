@@ -1,8 +1,9 @@
-// JavaScript Document
+// JavaScript Document  <script type="text/javascript" src="js/index.js"></script>
 $(function(){
 	
+	
+	
 	var num=$("div p").length;
-	console.log(num);
 	for(var i=0;i <= num;i++)
 			{
 				$("#"+i+"").draggable();
@@ -10,32 +11,35 @@ $(function(){
 	
 	$("#save").click(function()
 	{
-		
-		for(var a=1;a<=3;a++)
+		var Arrayx={};
+		var Arrayy={};
+		for(var a=1;a<=num;a++)
 		{
-			var x=new Array();
-			var y=new Array();
-			x.push($("#"+a+"").offset().top);
-			y.push($("#"+a+"").offset().left);
-			
-			$(document).ready(function()
+			Arrayx[a]=$("#"+a+"").offset().top;
+			Arrayy[a]=$("#"+a+"").offset().left;
+			id[a]=a;
+
+
+			/*$(document).ready(function()
 			{
-				var name=$("#"+a+" p").html();
+				console.log(a);
+				var name=$("#"+"a"+" p").html();
+				console.log(name);
+			})*/
 				
-			})
-				
-				
+			console.log(Arrayx[a],Arrayy[a]);	
 		}
-		console.log(x);
-		$.ajax(
-				{
-					type:"post",
-					url:"save.php",
-					date:{id:a,name:name},
-					suscces:function(data)
-					{
-						alert(data)
-					}
-				})
+		
+		$.ajax
+		({
+			type:"POST",
+			url:"save.php",
+			data:{id:id,Arrayx:Arrayx,Arrayy:Arrayy},
+			success:function(data)
+			{
+				console.log(data);
+			}
+		})
+
 	})
 })
